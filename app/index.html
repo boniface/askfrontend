@@ -8,7 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -111,14 +111,16 @@
             </div>
         </div>
         <div ng-controller="QuestionsubmitCtrl">
-            <form novalidate>
+            <form novalidate name="questionForm" class="css-form">
                 <div class="row">
                     <div class="col-sm-6 ">
                         <div class="inputContainer">
                             <label>Screen Name </label>
                             <input type="text"
-                                   ng-model="question.screename"
+                                   ng-model="question.screename" required="true"
                                    name="authorName"
+                                   ng-minlength="3"
+                                   ng-maxlength="15"
                                    id="authortName"
                                    value=""
                                    class="form-control"
@@ -129,7 +131,7 @@
                         <div class="inputContainer">
                             <label class="screen-reader-text">Email</label>
                             <input type="email"
-                                   ng-model="question.email"
+                                   ng-model="question.email" required="true"
                                    name="email"
                                    id="email"
                                    value=""
@@ -141,7 +143,9 @@
                         <div class="inputContainer">
                             <label class="screen-reader-text">Question Headline</label>
                             <input type="text"
-                                   ng-model="question.title"
+                                   ng-model="question.title" required="true"
+                                   ng-minlength="3"
+                                   ng-maxlength="50"
                                    name="title"
                                    id="title"
                                    value=""
@@ -153,7 +157,7 @@
                         <div class="inputContainer">
                             <label class="screen-reader-text">Question Detail</label>
                             <textarea name="comments"
-                                      ng-model="question.details"
+                                      ng-model="question.details" required="true"
                                       id="commentsText"
                                       class="form-control"
                                       autocomplete="off"></textarea>
@@ -169,6 +173,7 @@
                     <div class="col-sm-3 ">
                         <button name="submit"
                                 ng-click="reset()"
+                                ng-disabled="isUnchanged(user)"
                                 type="button"
                                 class="btn btn-primary btn-lg">Reset
                         </button>
@@ -176,7 +181,8 @@
 
                     <div class="col-sm-4 ">
                         <button name="submit"
-                                ng-click="update(question)"
+                                ng-click="save(question)"
+                                ng-disabled="questionForm.$invalid || isUnchanged(user)"
                                 type="button"
                                 class="btn btn-primary btn-lg btn-success">Submit
                         </button>

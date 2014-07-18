@@ -478,6 +478,14 @@ footer .social a .fa-inverse {
     color: #444;
 }
 
+.css-form input.ng-invalid.ng-dirty {
+    background-color: #FA787E;
+}
+
+.css-form input.ng-valid.ng-dirty {
+    background-color: #78FA89;
+}
+
 /**********************************************************************/
 /****************** MEDIA QUERIES ************************************/
 /********************************************************************/
