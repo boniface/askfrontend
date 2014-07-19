@@ -8,7 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -117,7 +117,7 @@
                         <div class="inputContainer">
                             <label>Screen Name </label>
                             <input type="text"
-                                   ng-model="question.screename" required="true"
+                                   ng-model="question.screenName" required="true"
                                    name="authorName"
                                    ng-minlength="3"
                                    ng-maxlength="15"
@@ -156,8 +156,8 @@
                     <div class="col-sm-12">
                         <div class="inputContainer">
                             <label class="screen-reader-text">Question Detail</label>
-                            <textarea name="comments"
-                                      ng-model="question.details" required="true"
+                            <textarea name="details"
+                                      ng-model="question.detail" required="true"
                                       id="commentsText"
                                       class="form-control"
                                       autocomplete="off"></textarea>
@@ -173,7 +173,7 @@
                     <div class="col-sm-3 ">
                         <button name="submit"
                                 ng-click="reset()"
-                                ng-disabled="isUnchanged(user)"
+                                ng-disabled="isUnchanged(question)"
                                 type="button"
                                 class="btn btn-primary btn-lg">Reset
                         </button>
@@ -181,8 +181,8 @@
 
                     <div class="col-sm-4 ">
                         <button name="submit"
-                                ng-click="save(question)"
-                                ng-disabled="questionForm.$invalid || isUnchanged(user)"
+                                ng-click="createQuestion(question)"
+                                ng-disabled="questionForm.$invalid || isUnchanged(question)"
                                 type="button"
                                 class="btn btn-primary btn-lg btn-success">Submit
                         </button>
@@ -211,213 +211,7 @@
 <!--</div>-->
 <!--</div>-->
 
-<div class="tabbable">
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#tab1" data-toggle="tab"><h3>Latest Questions</h3></a></li>
-    <li><a href="#tab2" data-toggle="tab"><h3>Answered</h3></a></li>
-    <li><a href="#tab3" data-toggle="tab"><h3>Unanswered</h3></a></li>
-</ul>
-<div class="tab-content">
-    <div class="tab-pane active" id="tab1">
-
-        <div class="row">
-            <div class="productFeatures clearfix">
-                <div class="col-xs-1 icon">
-							<span class="fa-stack fa-lg">
-							<i class="fa fa-circle fa-stack-2x"></i>
-							<i class="fa fa-question fa-stack-1x fa-inverse"></i>
-							</span>
-                </div>
-                <div class="col-xs-11">
-                    <h3>What is the First Question</h3>
-                    <i class="fa fa-calendar"></i> Asked on August 24, 2014 at 9:00 PM<br/>
-                    <br/>
-
-                    <p>Vestibulum tellivizzle i saw beyonces tizzles and my pizzle went crizzle
-                        primis gangsta
-                        faucibus fizzle luctizzle izzle stuff posuere mammasay mammasa mamma oo sa
-                        Daahng
-                        dawg. </p>
-
-                    <div class="well col-xs-12">
-                        <button type="button" class="btn btn-default disabled col-xs-12 col-md-3"><i
-                                class="fa fa-eye"></i> 1,200 Views
-                        </button>
-                        <button type="button" class="btn btn-default disabled col-xs-12 col-md-3"><i
-                                class="fa fa-comment"></i> 67 Answers
-                        </button>
-                        <a class="btn btn-success btn-green text-right pull-right col-xs-12 col-md-6"
-                           href="#reviews-anchor" id="open-review-box">Read More and Answer</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--End of Row-->
-
-        <div class="row">
-            <div class="productFeatures clearfix">
-                <div class="col-xs-1 icon">
-							<span class="fa-stack fa-lg">
-							<i class="fa fa-circle fa-stack-2x"></i>
-							<i class="fa fa-question fa-stack-1x fa-inverse"></i>
-							</span>
-                </div>
-                <div class="col-xs-11">
-                    <h3>What is the First Question</h3>
-                    <i class="fa fa-calendar"></i> Asked on August 24, 2014 at 9:00 PM<br/>
-                    <br/>
-
-                    <p>Vestibulum tellivizzle i saw beyonces tizzles and my pizzle went crizzle
-                        primis gangsta
-                        faucibus fizzle luctizzle izzle stuff posuere mammasay mammasa mamma oo sa
-                        Daahng
-                        dawg. </p>
-
-                    <div class="well col-xs-12">
-                        <button type="button" class="btn btn-default disabled col-xs-12 col-md-3"><i
-                                class="fa fa-eye"></i> 1,200 Views
-                        </button>
-                        <button type="button" class="btn btn-default disabled col-xs-12 col-md-3"><i
-                                class="fa fa-comment"></i> 67 Answers
-                        </button>
-                        <a class="btn btn-success btn-green text-right pull-right col-xs-12 col-md-6"
-                           href="#reviews-anchor" id="open-review-box">Read More and Answer</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--End of Row-->
-
-        <div class="row">
-            <div class="productFeatures clearfix">
-                <div class="col-xs-1 icon">
-							<span class="fa-stack fa-lg">
-							<i class="fa fa-circle fa-stack-2x"></i>
-							<i class="fa fa-question fa-stack-1x fa-inverse"></i>
-							</span>
-                </div>
-                <div class="col-xs-11">
-                    <h3>What is the First Question</h3>
-                    <i class="fa fa-calendar"></i> Asked on August 24, 2014 at 9:00 PM<br/>
-                    <br/>
-
-                    <p>Vestibulum tellivizzle i saw beyonces tizzles and my pizzle went crizzle
-                        primis gangsta
-                        faucibus fizzle luctizzle izzle stuff posuere mammasay mammasa mamma oo sa
-                        Daahng
-                        dawg. </p>
-
-                    <div class="well col-xs-12">
-                        <button type="button" class="btn btn-default disabled col-xs-12 col-md-3"><i
-                                class="fa fa-eye"></i> 1,200 Views
-                        </button>
-                        <button type="button" class="btn btn-default disabled col-xs-12 col-md-3"><i
-                                class="fa fa-comment"></i> 67 Answers
-                        </button>
-                        <a class="btn btn-success btn-green text-right pull-right col-xs-12 col-md-6"
-                           href="#reviews-anchor" id="open-review-box">Read More and Answer</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--End of Row-->
-
-        <div class="row">
-            <div class="productFeatures clearfix">
-                <div class="col-xs-1 icon">
-							<span class="fa-stack fa-lg">
-							<i class="fa fa-circle fa-stack-2x"></i>
-							<i class="fa fa-question fa-stack-1x fa-inverse"></i>
-							</span>
-                </div>
-                <div class="col-xs-11">
-                    <h3>What is the First Question</h3>
-                    <i class="fa fa-calendar"></i> Asked on August 24, 2014 at 9:00 PM<br/>
-                    <br/>
-
-                    <p>Vestibulum tellivizzle i saw beyonces tizzles and my pizzle went crizzle
-                        primis gangsta
-                        faucibus fizzle luctizzle izzle stuff posuere mammasay mammasa mamma oo sa
-                        Daahng
-                        dawg. </p>
-
-                    <div class="well col-xs-12">
-                        <button type="button" class="btn btn-default disabled col-xs-12 col-md-3"><i
-                                class="fa fa-eye"></i> 1,200 Views
-                        </button>
-                        <button type="button" class="btn btn-default disabled col-xs-12 col-md-3"><i
-                                class="fa fa-comment"></i> 67 Answers
-                        </button>
-                        <a class="btn btn-success btn-green text-right pull-right col-xs-12 col-md-6"
-                           href="#reviews-anchor" id="open-review-box">Read More and Answer</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--End of Row-->
-
-
-    </div>
-
-    <div class="tab-pane" id="tab2">
-        <div class="row">
-            <div class="productFeatures clearfix">
-                <div class="col-xs-1 icon">
-							<span class="fa-stack fa-lg">
-							<i class="fa fa-circle fa-stack-2x"></i>
-							<i class="fa fa-question fa-stack-1x fa-inverse"></i>
-							</span>
-                </div>
-                <div class="col-xs-11">
-                    <h3>We Have Already Answered This </h3>
-
-                    <p>Vestibulum tellivizzle i saw beyonces tizzles and my pizzle went crizzle
-                        primis gangsta
-                        faucibus fizzle luctizzle izzle stuff posuere mammasay mammasa mamma oo sa
-                        Daahng
-                        dawg.</p>
-
-                    <div class="well">
-                        views, answers , Date
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="tab-pane" id="tab3">
-        <div class="row">
-            <div class="productFeatures clearfix">
-                <div class="col-xs-1 icon">
-							<span class="fa-stack fa-lg">
-							<i class="fa fa-circle fa-stack-2x"></i>
-							<i class="fa fa-question fa-stack-1x fa-inverse"></i>
-							</span>
-                </div>
-                <div class="col-xs-11">
-                    <h3>This Question Not Answered</h3>
-
-                    <p>Vestibulum tellivizzle i saw beyonces tizzles and my pizzle went crizzle
-                        primis gangsta
-                        faucibus fizzle luctizzle izzle stuff posuere mammasay mammasa mamma oo sa
-                        Daahng
-                        dawg.</p>
-
-                    <div class="well">
-                        views, answers , Date
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-</div>
-
-
-</div>
+<ng-view>Content</ng-view>
 
 
 </div>
@@ -479,68 +273,7 @@
         </div>
     </div>
 </div>
-<!-- /featureWrap -->
 
-<!--<div id="productWrap" class="altWrap">-->
-<!--<div class="container">-->
-<!--<div class="row">-->
-<!--<div class="col-xs-12">-->
-<!--<h2 class="sectionTitle">Modern &amp; clean landing page theme</h2>-->
-
-<!--<h3 class="sectionTitle">Lorem ipsum dolizzle sit tellivizzle, boom shackalack adipiscing elit. Nullam-->
-<!--mofo velizzle, sure cool.</h3>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="row">-->
-<!--<div class="col-md-5 col-md-offset-1">-->
-<!--<div class="imgWrap">-->
-<!--<img class="img-responsive" src="images/tablet.png"/>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="col-md-5">-->
-<!--<div class="productFeatures clearfix">-->
-<!--<div class="col-xs-2 icon">-->
-<!--<span class="fa-stack fa-lg">-->
-<!--<i class="fa fa-circle fa-stack-2x"></i>-->
-<!--<i class="fa fa-trophy fa-stack-1x fa-inverse"></i>-->
-<!--</span>-->
-<!--</div>-->
-<!--<div class="col-xs-10">-->
-<!--<h3>Amazing features</h3>-->
-
-<!--<p>Vestibulum tellivizzle i saw beyonces tizzles and my pizzle went crizzle primis gangsta-->
-<!--faucibus fizzle luctizzle izzle stuff posuere mammasay mammasa mamma oo sa Daahng dawg.</p>-->
-<!--</div>-->
-<!--<div class="col-xs-2 icon">-->
-<!--<span class="fa-stack fa-lg">-->
-<!--<i class="fa fa-circle fa-stack-2x"></i>-->
-<!--<i class="fa fa-cog fa-stack-1x fa-inverse"></i>-->
-<!--</span>-->
-<!--</div>-->
-<!--<div class="col-xs-10">-->
-<!--<h3>Fully customizeable</h3>-->
-
-<!--<p>Vestibulum tellivizzle i saw beyonces tizzles and my pizzle went crizzle primis gangsta-->
-<!--faucibus fizzle luctizzle izzle stuff posuere mammasay mammasa mamma oo sa Daahng dawg.</p>-->
-<!--</div>-->
-<!--<div class="col-xs-2 icon">-->
-<!--<span class="fa-stack fa-lg">-->
-<!--<i class="fa fa-circle fa-stack-2x"></i>-->
-<!--<i class="fa fa-bars fa-stack-1x fa-inverse"></i>-->
-<!--</span>-->
-<!--</div>-->
-<!--<div class="col-xs-10">-->
-<!--<h3>Clean &amp; functional layout</h3>-->
-
-<!--<p>Vestibulum tellivizzle i saw beyonces tizzles and my pizzle went crizzle primis gangsta-->
-<!--faucibus fizzle luctizzle izzle stuff posuere mammasay mammasa mamma oo sa Daahng dawg.</p>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!-- /productWrap -->
 
 <footer>
     <div class="container">
@@ -626,6 +359,8 @@
 <script src="scripts/controllers/about.js"></script>
 <script src="scripts/controllers/user.js"></script>
 <script src="scripts/controllers/questionsubmit.js"></script>
+<script src="scripts/services/questservice.js"></script>
+<script src="scripts/services/questconnect.js"></script>
 <!-- endbuild -->
 </body>
 </html>

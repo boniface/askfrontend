@@ -1,23 +1,100 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
+<div class="tabbable" ng-controller="MainCtrl">
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#latest" data-toggle="tab"><h3>Latest Questions</h3></a></li>
+    <li><a href="#answered" data-toggle="tab"><h3>Answered</h3></a></li>
+    <li><a href="#tab3" data-toggle="tab"><h3>Unanswered</h3></a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="latest">
 
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+        <div class="row" ng-repeat="item in questions">
+            <div class="productFeatures clearfix">
+                <div class="col-xs-1 icon">
+							<span class="fa-stack fa-lg">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-question fa-stack-1x fa-inverse"></i>
+							</span>
+                </div>
+                <div class="col-xs-11">
+                    <h3>{{item.title}}</h3>
+                    <i class="fa fa-calendar"></i> {{item.date | date:'medium'}}<br/>
+                    <br/>
+
+                    <p>{{item.detail | limitTo: 200}} </p>
+
+                    <div class="well col-xs-12">
+                        <button type="button" class="btn btn-default disabled col-xs-12 col-md-3"><i
+                                class="fa fa-eye"></i> 1,200 Views
+                        </button>
+                        <button type="button" class="btn btn-default disabled col-xs-12 col-md-3"><i
+                                class="fa fa-comment"></i> 67 Answers
+                        </button>
+                        <a class="btn btn-success btn-green text-right pull-right col-xs-12 col-md-6"
+                           href="#reviews-anchor" id="open-review-box">Read More and Answer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End of Row-->
+
+    </div>
+
+    <div class="tab-pane" id="answered">
+        <div class="row">
+            <div class="productFeatures clearfix">
+                <div class="col-xs-1 icon">
+							<span class="fa-stack fa-lg">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-question fa-stack-1x fa-inverse"></i>
+							</span>
+                </div>
+                <div class="col-xs-11">
+                    <h3>Headline</h3>
+
+                    <p>Vestibulum tellivizzle i saw beyonces tizzles and my pizzle went crizzle
+                        primis gangsta
+                        faucibus fizzle luctizzle izzle stuff posuere mammasay mammasa mamma oo sa
+                        Daahng
+                        dawg.</p>
+
+                    <div class="well">
+                        views, answers , Date
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="tab-pane" id="tab3">
+        <div class="row">
+            <div class="productFeatures clearfix">
+                <div class="col-xs-1 icon">
+							<span class="fa-stack fa-lg">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-question fa-stack-1x fa-inverse"></i>
+							</span>
+                </div>
+                <div class="col-xs-11">
+                    <h3>Headline</h3>
+
+                    <p>Vestibulum tellivizzle i saw beyonces tizzles and my pizzle went crizzle
+                        primis gangsta
+                        faucibus fizzle luctizzle izzle stuff posuere mammasay mammasa mamma oo sa
+                        Daahng
+                        dawg.</p>
+
+                    <div class="well">
+                        views, answers , Date
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
 </div>

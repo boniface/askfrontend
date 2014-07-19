@@ -8,15 +8,10 @@
  * Controller of the askApp
  */
 angular.module('askApp')
-    .run(function($rootScope) {
+    .run(function ($rootScope) {
         $rootScope.name = 'You  In';
     })
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML Boilerplate',
-      'Angula',
-      'Karma'
-    ];
-
-
-  });
+    .controller('MainCtrl', function ($scope, $http, $resource, baseUrl) {
+        $scope.questionsResource = $resource(baseUrl+'question/questions' + ':id', { id: '@id' });
+        $scope.questions = $scope.questionsResource.query();
+    });
