@@ -7,7 +7,7 @@
 <div class="tab-content">
     <div class="tab-pane active" id="latest">
 
-        <div class="row" ng-repeat="item in questions">
+        <div class="row" ng-repeat="item in questions | orderBy:'-date'">
             <div class="productFeatures clearfix">
                 <div class="col-xs-1 icon">
 							<span class="fa-stack fa-lg">
@@ -30,7 +30,7 @@
                                 class="fa fa-comment"></i> 67 Answers
                         </button>
                         <a class="btn btn-success btn-green text-right pull-right col-xs-12 col-md-6"
-                           href="#reviews-anchor" id="open-review-box">Read More and Answer</a>
+                           href="#/ask/answer/{{item.id}}" id="open-review-box">Read More and Answer</a>
                     </div>
                 </div>
             </div>

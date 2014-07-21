@@ -19,7 +19,7 @@ angular
     ])
     .constant('baseUrl', 'http://localhost:8080/api/')
     .config(function ($routeProvider, $locationProvider) {
-        $locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(false);
         $routeProvider
             .when('/', {
                 templateUrl: 'views/main.html',
@@ -28,6 +28,14 @@ angular
             .when('/about', {
                 templateUrl: 'views/about.html',
                 controller: 'AboutCtrl'
+            })
+            .when('/ask/question', {
+              templateUrl: 'views/askquestion.html',
+              controller: 'AskquestionCtrl'
+            })
+            .when('/ask/answer/:id', {
+              templateUrl: 'views/answer.html',
+              controller: 'AnswerCtrl'
             })
             .otherwise({
                 redirectTo: '/'

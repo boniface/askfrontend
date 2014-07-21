@@ -89,111 +89,12 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <button name="submit" type="button" class="btn btn-primary btn-lg col-sm-12 col-xs-12 "
-                onclick="$('#askform').toggle();">Ask
-            Question
-        </button>
+        <a href="#/ask/question" class="btn btn-primary btn-lg col-sm-12 col-xs-12" role="button">Ask Question</a>
     </div>
+
 </div>
 
-<div class="row" hidden="true" id="askform">
-    <div id="contactWrap">
-        <div class="row">
-            <div class="col-xs-12">
-                <h2 class="sectionTitle">Ask Question</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <div class="blurb">
-                    Provide Email if you want to moderate the Answers and close the questions
-                </div>
-            </div>
-        </div>
-        <div ng-controller="QuestionsubmitCtrl">
-            <form novalidate name="questionForm" class="css-form">
-                <div class="row">
-                    <div class="col-sm-6 ">
-                        <div class="inputContainer">
-                            <label>Screen Name </label>
-                            <input type="text"
-                                   ng-model="question.screenName" required="true"
-                                   name="authorName"
-                                   ng-minlength="3"
-                                   ng-maxlength="15"
-                                   id="authortName"
-                                   value=""
-                                   class="form-control"
-                                   autocomplete="off"/>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="inputContainer">
-                            <label class="screen-reader-text">Email</label>
-                            <input type="email"
-                                   ng-model="question.email" required="true"
-                                   name="email"
-                                   id="email"
-                                   value=""
-                                   class="form-control"
-                                   autocomplete="off"/>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="inputContainer">
-                            <label class="screen-reader-text">Question Headline</label>
-                            <input type="text"
-                                   ng-model="question.title" required="true"
-                                   ng-minlength="3"
-                                   ng-maxlength="50"
-                                   name="title"
-                                   id="title"
-                                   value=""
-                                   class="form-control"
-                                   autocomplete="off"/>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="inputContainer">
-                            <label class="screen-reader-text">Question Detail</label>
-                            <textarea name="details"
-                                      ng-model="question.detail" required="true"
-                                      id="commentsText"
-                                      class="form-control"
-                                      autocomplete="off"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-sm-offset-2">
-                        <button name="submit"
-                                type="button"
-                                onclick="$('#askform').toggle();"
-                                class="btn btn-primary btn-lg">Cancel
-                        </button>
-                    </div>
-                    <div class="col-sm-3 ">
-                        <button name="submit"
-                                ng-click="reset()"
-                                ng-disabled="isUnchanged(question)"
-                                type="button"
-                                class="btn btn-primary btn-lg">Reset
-                        </button>
-                    </div>
 
-                    <div class="col-sm-4 ">
-                        <button name="submit"
-                                ng-click="createQuestion(question)"
-                                ng-disabled="questionForm.$invalid || isUnchanged(question)"
-                                type="button"
-                                class="btn btn-primary btn-lg btn-success">Submit
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!-- /contactWrap -->
-
-</div>
 
 <!--<div class="row">-->
 <!--<div class="col-sm-12 ">-->
@@ -361,6 +262,9 @@
 <script src="scripts/controllers/questionsubmit.js"></script>
 <script src="scripts/services/questservice.js"></script>
 <script src="scripts/services/questconnect.js"></script>
+<script src="scripts/controllers/askquestion.js"></script>
+<script src="scripts/controllers/answer.js"></script>
+<script src="scripts/filters/excerpt.js"></script>
 <!-- endbuild -->
 </body>
 </html>
