@@ -1,0 +1,207 @@
+<div class="answers">
+<div class="row" ng-controller="AnswerCtrl">
+
+    <div class="productFeatures clearfix">
+        <div class="col-xs-1 icon">
+							<span class="fa-stack fa-lg">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-question fa-stack-1x fa-inverse"></i>
+							</span>
+        </div>
+        <div class="col-xs-11">
+            <h3>{{currentQuestion.title}}</h3>
+            <button type="button" class="btn btn-default disabled"><i
+                    class="fa fa-user"></i> John Banda
+            </button>
+            <i class="fa fa-calendar"></i> {{currentQuestion.date | date:'medium'}}<br/>
+            <br/>
+
+            <p>{{currentQuestion.detail}} </p>
+
+            <div class="well col-xs-12">
+
+                <div class="row">
+                    <button type="button" class="btn btn-default disabled col-xs-12 col-md-3"><i
+                            class="fa fa-eye"></i> 1,200 Views
+                    </button>
+                    <button type="button" class="btn btn-default disabled col-xs-12 col-md-3"><i
+                            class="fa fa-comment"></i> 67 Answers
+                    </button>
+                </div>
+
+
+                <form novalidate name="answerForm" class="css-form">
+                    <div class="row">
+                        <div class="col-sm-6 ">
+                            <div class="inputContainer">
+                                <label>Screen Name </label>
+                                <input type="text"
+                                       ng-model="answer.screenName" required="true"
+                                       name="authorName"
+                                       ng-minlength="3"
+                                       ng-maxlength="15"
+                                       id="authortName"
+                                       value=""
+                                       class="form-control"
+                                       autocomplete="off"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="inputContainer">
+                                <label class="screen-reader-text">Email</label>
+                                <input type="email"
+                                       ng-model="answer.email" required="true"
+                                       name="email"
+                                       id="email"
+                                       value=""
+                                       class="form-control"
+                                       autocomplete="off"/>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="inputContainer">
+                                <label class="screen-reader-text">Your Answer</label>
+                                <textarea name="answer"
+                                          ng-model="answer.answer" required="true"
+                                          id="commentsText"
+                                          class="form-control"
+                                          autocomplete="off"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="clearfix">
+                            <hr/>
+                        </div>
+                        <div class="col-sm-12 ">
+                            <button name="submit"
+                                    ng-click="createAnswer(answer)"
+                                    ng-disabled="answerForm.$invalid || isUnchanged(answer)"
+                                    type="button"
+                                    class="btn btn-primary btn-md btn-lg pull-right">Submit Answer
+                            </button>
+                        </div>
+
+
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="productFeatures clearfix">
+        <div class="col-xs-2 icon">
+							<span class="fa-stack fa-lg">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-comments fa-stack-1x fa-inverse"></i>
+							</span>
+        </div>
+        <div class="col-xs-10">
+            <div class="row">
+                <div class="btn-toolbar">
+                    <button type="button" class="btn btn-default disabled"><i
+                            class="fa fa-user"></i> John Banda
+                    </button>
+                    <button type="button" class="btn btn-default disabled"><i
+                            class="fa fa-user"></i> Reputation: 75%
+                    </button>
+
+                    <button type="button" class="btn btn-default  pull-right btn-success active"><i
+                            class="fa fa-thumbs-up"></i> Vote: 200k
+                    </button>
+
+                    <button type="button" class="btn btn-default  pull-right btn-danger"><i
+                            class="fa fa-thumbs-down"></i> Vote:400K
+                    </button>
+                </div>
+            </div>
+            <br/>
+
+            <div class="row">
+                <i class="fa fa-calendar"></i> {{currentQuestion.date | date:'medium'}}<br/>
+            </div>
+            <br/>
+
+            <p>Vestibulum tellivizzle i saw beyonces tizzles and my pizzle went crizzle
+                primis gangsta
+                faucibus fizzle luctizzle izzle stuff posuere mammasay mammasa mamma oo sa
+                Daahng
+                dawg.</p>
+
+            <div class="row">
+
+                <button type="button" class="btn btn-default  pull-left  active"><i
+                        class="fa fa-exclamation-triangle"></i> Report Abuse
+                </button>
+
+                <button type="button" class="btn btn-default  pull-right  active"><i
+                        class="fa fa-comment"></i> Comment on this Answer
+                </button>
+            </div>
+            <hr/>
+
+
+            <div class="row"> <!--Comments-->
+                <div class="productFeatures clearfix">
+                    <div class="col-xs-2 icon">
+							<span class="fa-stack fa-lg">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-comments fa-stack-1x fa-inverse"></i>
+							</span>
+                    </div>
+                    <div class="col-xs-10">
+                        <div class="row">
+                            <div class="btn-toolbar">
+                                <button type="button" class="btn btn-default disabled"><i
+                                        class="fa fa-user"></i> John Banda
+                                </button>
+                                <button type="button" class="btn btn-default disabled"><i
+                                        class="fa fa-user"></i> Reputation: 75%
+                                </button>
+
+                                <button type="button" class="btn btn-default  pull-right btn-success active"><i
+                                        class="fa fa-thumbs-up"></i> Vote: 200k
+                                </button>
+
+                                <button type="button" class="btn btn-default  pull-right btn-danger"><i
+                                        class="fa fa-thumbs-down"></i> Vote:400K
+                                </button>
+                            </div>
+                        </div>
+                        <br/>
+
+                        <div class="row">
+                            <i class="fa fa-calendar"></i> {{currentQuestion.date | date:'medium'}}<br/>
+                        </div>
+                        <br/>
+
+                        <p>Vestibulum tellivizzle i saw beyonces tizzles and my pizzle went crizzle
+                            primis gangsta
+                            faucibus fizzle luctizzle izzle stuff posuere mammasay mammasa mamma oo sa
+                            Daahng
+                            dawg.</p>
+
+                        <div class="row">
+
+                            <button type="button" class="btn btn-default  pull-left  active"><i
+                                    class="fa fa-exclamation-triangle"></i> Report Abuse
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--End of Row-->
