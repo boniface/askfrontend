@@ -8,36 +8,57 @@
  * Controller of the askApp
  */
 angular.module('askApp')
-  .controller('AnswerCtrl', function ($scope, $http, $resource,$location,baseUrl,$routeParams){
+    .controller('AnswerCtrl', function ($scope, $http, $resource, $location, baseUrl, $routeParams) {
         var id = $routeParams.id;
         $scope.currentQuestion = null;
-        $scope.questionAnswerResource = $resource(baseUrl+'question/get/'+id +':id', { id: '@id' });
-        $scope.commentResource = $resource(baseUrl+'question/get/'+id +':id', { id: '@id' });
-        $scope.answerResource = $resource(baseUrl+'question/get/'+id +':id', { id: '@id' });
-        $scope.currentQuestion=$scope.questionAnswerResource.get();
+        $scope.questionAnswerResource = $resource(baseUrl + 'question/get/' + id + ':id', { id: '@id' });
+        $scope.postCommentResource = $resource(baseUrl + 'comment' + ':id', { id: '@id' });
+        $scope.postAnswerResource = $resource(baseUrl + 'answer' + ':id', { id: '@id' });
+        $scope.getCommentResource = $resource(baseUrl + 'comment/get/' + id + ':id', { id: '@id' });
+        $scope.getAnswerResource = $resource(baseUrl + 'answer/get/' + id + ':id', { id: '@id' });
 
 
-        $scope.formData = {};
+
+        $scope.currentQuestion = $scope.questionAnswerResource.get();
+//        $scope.answerId=id;
 
         $scope.createAnswer = function(answer) {
-            new $scope.submitResource(answer).$create();
-            $scope.answer.screenName='';
-            $scope.answer.email='';
-            $scope.answer.answer='';
+            $scope.answer.questionId=id;
+            new $scope.postAnswerResource(answer).$save();
+            $scope.answer ={};
             $scope.answerForm.$setPristine();
-            $location.path('/');
+            $location.path('/ask/answer/' + id);
 
         };
-        $scope.isUnchanged = function(question) {
+
+        $scope.isUnchanged = function (question) {
             return angular.equals(question, $scope.master);
         };
-        $scope.reset = function(){
-            $scope.question.screenName='';
-            $scope.question.email='';
-            $scope.question.title='';
-            $scope.question.detail='';
-            $scope.questionForm.$setPristine();
+
+        $scope.answers = $scope.getAnswerResource.query();
+
+        $scope.createComment = function(comment, answerId) {
+
+//            $scope.comment.answerId=id;
+
+            console.log('The Comments', answerId);
+            $scope.cform = {};
+            $scope.cform.screenName  =comment.screenName;
+            $scope.cform.email  = comment.email;
+            $scope.cform.comment  = comment.comment;
+            $scope.cform.answerId  = answerId;
+
+            console.log('The Comments', $scope.cform);
+
+            new $scope.postCommentResource($scope.cform).$save();
+            $scope.comment ={};
+
+            console.log('The FORM is ',$scope);
+//            $scope.commentForm.$setPristine();
+
+            $location.path('/ask/answer/' + id);
+
         };
 
 
-        });
+    });

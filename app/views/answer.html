@@ -1,5 +1,5 @@
-<div class="answers">
-<div class="row" ng-controller="AnswerCtrl">
+<div class="answers" ng-controller="AnswerCtrl">
+<div class="row">
 
     <div class="productFeatures clearfix">
         <div class="col-xs-1 icon">
@@ -59,6 +59,19 @@
                             </div>
                         </div>
 
+                        <div class="col-sm-6" hidden="true">
+                            <div class="inputContainer">
+                                <label class="screen-reader-text">Email</label>
+                                <input type="email"
+                                       ng-model="answer.questionId"
+                                       name="questionId"
+                                       id="questionId"
+                                       value=""
+                                       class="form-control"
+                                       autocomplete="off"/>
+                            </div>
+                        </div>
+
                         <div class="col-sm-12">
                             <div class="inputContainer">
                                 <label class="screen-reader-text">Your Answer</label>
@@ -93,7 +106,7 @@
 </div>
 
 
-<div class="row">
+<div class="row" ng-repeat="item in answers | orderBy:'-date'">
     <div class="productFeatures clearfix">
         <div class="col-xs-2 icon">
 							<span class="fa-stack fa-lg">
@@ -105,7 +118,7 @@
             <div class="row">
                 <div class="btn-toolbar">
                     <button type="button" class="btn btn-default disabled"><i
-                            class="fa fa-user"></i> John Banda
+                            class="fa fa-user"></i> {{item.screenName}}
                     </button>
                     <button type="button" class="btn btn-default disabled"><i
                             class="fa fa-user"></i> Reputation: 75%
@@ -123,15 +136,11 @@
             <br/>
 
             <div class="row">
-                <i class="fa fa-calendar"></i> {{currentQuestion.date | date:'medium'}}<br/>
+                <i class="fa fa-calendar"></i> {{item.date | date:'medium'}}<br/>
             </div>
             <br/>
 
-            <p>Vestibulum tellivizzle i saw beyonces tizzles and my pizzle went crizzle
-                primis gangsta
-                faucibus fizzle luctizzle izzle stuff posuere mammasay mammasa mamma oo sa
-                Daahng
-                dawg.</p>
+            <p>{{item.answer}}</p>
 
             <div class="row">
 
@@ -139,9 +148,76 @@
                         class="fa fa-exclamation-triangle"></i> Report Abuse
                 </button>
 
-                <button type="button" class="btn btn-default  pull-right  active"><i
+                <button type="button" name="submit" class="btn btn-default  pull-right  active"
+                        onclick="$('#commentForm').toggle();"><i
                         class="fa fa-comment"></i> Comment on this Answer
                 </button>
+                <hr/>
+
+                <form novalidate name="commentForm" id="commentForm" class="css-form" hidden="true">
+                    <div class="row">
+                        <div class="col-sm-6 ">
+                            <div class="inputContainer">
+                                <label>Screen Name </label>
+                                <input type="text"
+                                       ng-model="comment.screenName" required="true"
+                                       name="authorName"
+                                       ng-minlength="3"
+                                       ng-maxlength="15"
+                                       id="authortName"
+                                       value=""
+                                       class="form-control"
+                                       autocomplete="off"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="inputContainer">
+                                <label class="screen-reader-text">Email</label>
+                                <input type="email"
+                                       ng-model="comment.email" required="true"
+                                       name="email"
+                                       id="email"
+                                       value=""
+                                       class="form-control"
+                                       autocomplete="off"/>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="inputContainer">
+                                <label class="screen-reader-text">Comment</label>
+                                <textarea name="answer"
+                                          ng-model="comment.comment" required="true"
+                                          id="commentsText"
+                                          class="form-control"
+                                          autocomplete="off"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="clearfix">
+                            <hr/>
+                        </div>
+                        <div class="col-sm-12 ">
+                            <div class="btn-toolbar">
+
+                                <button name="submit"
+                                        ng-click="createComment(comment, item.id)"
+                                        ng-disabled="commentForm.$invalid || isUnchanged(comment)"
+                                        type="button"
+                                        class="btn btn-primary btn-md btn-lg pull-right">Submit Comment
+                                </button>
+                                <button name="submit"
+                                        onclick="$('#commentForm').toggle();"
+                                        type="button"
+                                        class="btn btn-primary btn-md btn-lg pull-right">Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--Comments Form -->
+
+
             </div>
             <hr/>
 
@@ -164,7 +240,8 @@
                                         class="fa fa-user"></i> Reputation: 75%
                                 </button>
 
-                                <button type="button" class="btn btn-default  pull-right btn-success active"><i
+                                <button type="button"
+                                        class="btn btn-default  pull-right btn-success active"><i
                                         class="fa fa-thumbs-up"></i> Vote: 200k
                                 </button>
 
@@ -191,10 +268,7 @@
                             <button type="button" class="btn btn-default  pull-left  active"><i
                                     class="fa fa-exclamation-triangle"></i> Report Abuse
                             </button>
-
-
                         </div>
-
                     </div>
 
                 </div>
@@ -202,6 +276,7 @@
         </div>
     </div>
 </div>
+
 </div>
 
 <!--End of Row-->
