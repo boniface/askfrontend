@@ -1,6 +1,5 @@
 <div class="answers" ng-controller="AnswerCtrl">
 <div class="row">
-
     <div class="productFeatures clearfix">
         <div class="col-xs-1 icon">
 							<span class="fa-stack fa-lg">
@@ -149,12 +148,16 @@
                 </button>
 
                 <button type="button" name="submit" class="btn btn-default  pull-right  active"
-                        onclick="$('#commentForm').toggle();"><i
+                        onclick="$('#ommentForm').toggle();"><i
                         class="fa fa-comment"></i> Comment on this Answer
                 </button>
                 <hr/>
 
-                <form novalidate name="commentForm" id="commentForm" class="css-form" hidden="true">
+                <form novalidate name="commentForm"
+                      id="commentForm"
+                      class="css-form"
+
+                      ng-controller="CommentCtrl">
                     <div class="row">
                         <div class="col-sm-6 ">
                             <div class="inputContainer">
@@ -222,7 +225,29 @@
             <hr/>
 
 
-            <div class="row"> <!--Comments-->
+            <button class="btn btn-default" ng-click="open()">{{ customer.name }}</button>
+
+            <!--MODAL WINDOW-->
+            <script type="text/ng-template" id="formmodel.html">
+                <div class="modal-header">
+                    <h3>The Customer Name is: {{ customer.name }}</h3>
+                </div>
+                <div class="modal-body">
+                    This is where the Customer Details Goes<br />
+                    {{ customer.details }}
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </script>
+
+
+
+
+
+
+            <div class="row" ng-repeat="comm in item.comments | orderBy:'-date'"> <!--Comments-->
+
                 <div class="productFeatures clearfix">
                     <div class="col-xs-2 icon">
 							<span class="fa-stack fa-lg">
@@ -234,7 +259,7 @@
                         <div class="row">
                             <div class="btn-toolbar">
                                 <button type="button" class="btn btn-default disabled"><i
-                                        class="fa fa-user"></i> John Banda
+                                        class="fa fa-user"></i> {{comm.screenName}}
                                 </button>
                                 <button type="button" class="btn btn-default disabled"><i
                                         class="fa fa-user"></i> Reputation: 75%
@@ -253,15 +278,11 @@
                         <br/>
 
                         <div class="row">
-                            <i class="fa fa-calendar"></i> {{currentQuestion.date | date:'medium'}}<br/>
+                            <i class="fa fa-calendar"></i> {{comm.date | date:'medium'}}<br/>
                         </div>
                         <br/>
 
-                        <p>Vestibulum tellivizzle i saw beyonces tizzles and my pizzle went crizzle
-                            primis gangsta
-                            faucibus fizzle luctizzle izzle stuff posuere mammasay mammasa mamma oo sa
-                            Daahng
-                            dawg.</p>
+                        <p>{{comm.comment}}</p>
 
                         <div class="row">
 

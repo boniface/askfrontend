@@ -15,7 +15,8 @@ angular
         'ngResource',
         'ngRoute',
         'ngSanitize',
-        'ngTouch'
+        'ngTouch',
+        'ui.bootstrap'
     ])
     .constant('baseUrl', 'http://localhost:8080/api/')
     .config(function ($routeProvider, $locationProvider) {
