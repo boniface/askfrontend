@@ -31,8 +31,8 @@ angular
                 controller: 'AboutCtrl'
             })
             .when('/ask/question', {
-              templateUrl: 'views/askquestion.html',
-              controller: 'AskquestionCtrl'
+              templateUrl: 'views/questionForm.html',
+              controller: 'MainCtrl'
             })
             .when('/ask/answer/:id', {
               templateUrl: 'views/answer.html',

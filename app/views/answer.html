@@ -153,97 +153,76 @@
                 </button>
                 <hr/>
 
-                <form novalidate name="commentForm"
-                      id="commentForm"
-                      class="css-form"
+                <!--<form novalidate name="commentForm"-->
+                      <!--id="commentForm"-->
+                      <!--class="css-form"-->
 
-                      ng-controller="CommentCtrl">
-                    <div class="row">
-                        <div class="col-sm-6 ">
-                            <div class="inputContainer">
-                                <label>Screen Name </label>
-                                <input type="text"
-                                       ng-model="comment.screenName" required="true"
-                                       name="authorName"
-                                       ng-minlength="3"
-                                       ng-maxlength="15"
-                                       id="authortName"
-                                       value=""
-                                       class="form-control"
-                                       autocomplete="off"/>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="inputContainer">
-                                <label class="screen-reader-text">Email</label>
-                                <input type="email"
-                                       ng-model="comment.email" required="true"
-                                       name="email"
-                                       id="email"
-                                       value=""
-                                       class="form-control"
-                                       autocomplete="off"/>
-                            </div>
-                        </div>
+                      <!--ng-controller="CommentCtrl">-->
+                    <!--<div class="row">-->
+                        <!--<div class="col-sm-6 ">-->
+                            <!--<div class="inputContainer">-->
+                                <!--<label>Screen Name </label>-->
+                                <!--<input type="text"-->
+                                       <!--ng-model="comment.screenName" required="true"-->
+                                       <!--name="authorName"-->
+                                       <!--ng-minlength="3"-->
+                                       <!--ng-maxlength="15"-->
+                                       <!--id="authortName"-->
+                                       <!--value=""-->
+                                       <!--class="form-control"-->
+                                       <!--autocomplete="off"/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-sm-6">-->
+                            <!--<div class="inputContainer">-->
+                                <!--<label class="screen-reader-text">Email</label>-->
+                                <!--<input type="email"-->
+                                       <!--ng-model="comment.email" required="true"-->
+                                       <!--name="email"-->
+                                       <!--id="email"-->
+                                       <!--value=""-->
+                                       <!--class="form-control"-->
+                                       <!--autocomplete="off"/>-->
+                            <!--</div>-->
+                        <!--</div>-->
 
-                        <div class="col-sm-12">
-                            <div class="inputContainer">
-                                <label class="screen-reader-text">Comment</label>
-                                <textarea name="answer"
-                                          ng-model="comment.comment" required="true"
-                                          id="commentsText"
-                                          class="form-control"
-                                          autocomplete="off"></textarea>
-                            </div>
-                        </div>
+                        <!--<div class="col-sm-12">-->
+                            <!--<div class="inputContainer">-->
+                                <!--<label class="screen-reader-text">Comment</label>-->
+                                <!--<textarea name="answer"-->
+                                          <!--ng-model="comment.comment" required="true"-->
+                                          <!--id="commentsText"-->
+                                          <!--class="form-control"-->
+                                          <!--autocomplete="off"></textarea>-->
+                            <!--</div>-->
+                        <!--</div>-->
 
-                        <div class="clearfix">
-                            <hr/>
-                        </div>
-                        <div class="col-sm-12 ">
-                            <div class="btn-toolbar">
+                        <!--<div class="clearfix">-->
+                            <!--<hr/>-->
+                        <!--</div>-->
+                        <!--<div class="col-sm-12 ">-->
+                            <!--<div class="btn-toolbar">-->
 
-                                <button name="submit"
-                                        ng-click="createComment(comment, item.id)"
-                                        ng-disabled="commentForm.$invalid || isUnchanged(comment)"
-                                        type="button"
-                                        class="btn btn-primary btn-md btn-lg pull-right">Submit Comment
-                                </button>
-                                <button name="submit"
-                                        onclick="$('#commentForm').toggle();"
-                                        type="button"
-                                        class="btn btn-primary btn-md btn-lg pull-right">Cancel
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <!--Comments Form -->
+                                <!--<button name="submit"-->
+                                        <!--ng-click="createComment(comment, item.id)"-->
+                                        <!--ng-disabled="commentForm.$invalid || isUnchanged(comment)"-->
+                                        <!--type="button"-->
+                                        <!--class="btn btn-primary btn-md btn-lg pull-right">Submit Comment-->
+                                <!--</button>-->
+                                <!--<button name="submit"-->
+                                        <!--onclick="$('#commentForm').toggle();"-->
+                                        <!--type="button"-->
+                                        <!--class="btn btn-primary btn-md btn-lg pull-right">Cancel-->
+                                <!--</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</form>-->
+                <!--&lt;!&ndash;Comments Form &ndash;&gt;-->
 
 
             </div>
             <hr/>
-
-
-            <button class="btn btn-default" ng-click="open()">{{ customer.name }}</button>
-
-            <!--MODAL WINDOW-->
-            <script type="text/ng-template" id="formmodel.html">
-                <div class="modal-header">
-                    <h3>The Customer Name is: {{ customer.name }}</h3>
-                </div>
-                <div class="modal-body">
-                    This is where the Customer Details Goes<br />
-                    {{ customer.details }}
-                </div>
-                <div class="modal-footer">
-
-                </div>
-            </script>
-
-
-
-
 
 
             <div class="row" ng-repeat="comm in item.comments | orderBy:'-date'"> <!--Comments-->

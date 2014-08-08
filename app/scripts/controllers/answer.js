@@ -19,39 +19,42 @@ angular.module('askApp')
         $scope.questionAnswerResource = $resource(baseUrl + 'question/get/' + id + ':id', { id: '@id' });
         $scope.postAnswerResource = $resource(baseUrl + 'answer' + ':id', { id: '@id' });
         $scope.getAnswerResource = $resource(baseUrl + 'answer/get/' + id + ':id', { id: '@id' });
+        $scope.answers = $scope.getAnswerResource.query();
 
         $scope.currentQuestion = $scope.questionAnswerResource.get();
 
         $scope.createAnswer = function(answer) {
             $scope.answer.questionId=id;
-            new $scope.postAnswerResource(answer).$save();
-            $scope.answer ={};
-            $scope.answerForm.$setPristine();
-            $location.path('/ask/answer/' + id);
 
+            new $scope.postAnswerResource(answer).$save().then(function(answer){
+                $scope.answers.push(answer);
+                $scope.answer ={};
+                $scope.answerForm.$setPristine();
+                $location.path('/ask/answer/' + id);
+            });
         };
 
         $scope.isUnchanged = function (question) {
             return angular.equals(question, $scope.master);
         };
 
-        $scope.answers = $scope.getAnswerResource.query();
+
 
         // MODAL WINDOW
-        $scope.open = function (_customer) {
-
-            var modalInstance = $modal.open({
-                controller: 'CommentCtrl',
-                templateUrl: 'formmodel.html',
-                resolve: {
-                    customer: function()
-                    {
-                        return _customer;
-                    }
-                }
-            });
-
-        };
+//        $scope.open = function (_customer) {
+//
+////            var modalInstance = $modal.open({
+////                controller: 'CommentCtrl',
+////                templateUrl: 'formmodel.html',
+////                resolve: {
+////                    customer: function()
+////                    {
+////                        return _customer;
+////                    }
+////                }
+////            });
+//
+//        };
 
 
     });

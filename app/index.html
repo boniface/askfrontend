@@ -97,7 +97,7 @@
 
 
 
-<ng-view>Content</ng-view>
+<ng-view></ng-view>
 
 
 </div>
@@ -127,24 +127,11 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4 text-center feature">
-                <i class="fa fa-question icon"></i>
-
-                <h3>Responsive Bootstrap Template</h3>
-
-                <p>
-                    Lorem ipsum dolizzle sit tellivizzle, boom shackalack adipiscing elit. Nullam mofo velizzle, get
-                    down get down stuff, sure cool, dizzle vizzle, arcu. Yo mamma izzle tortizzle.
-                </p>
+                <ng-include src="'views/about.html'"/>
             </div>
             <div class="col-sm-4 text-center feature">
-                <i class="fa fa-pencil icon"></i>
+               {{result}}
 
-                <h3>Easy to Customize</h3>
-
-                <p>
-                    Lorem ipsum dolizzle sit tellivizzle, boom shackalack adipiscing elit. Nullam mofo velizzle, get
-                    down get down stuff, sure cool, dizzle vizzle, arcu. Yo mamma izzle tortizzle.
-                </p>
             </div>
             <div class="col-sm-4 text-center feature">
                 <i class="fa fa-star icon"></i>
