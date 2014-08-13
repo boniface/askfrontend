@@ -105,6 +105,8 @@
 </div>
 
 
+
+
 <div class="row" ng-repeat="item in answers | orderBy:'-date'">
     <div class="productFeatures clearfix">
         <div class="col-xs-2 icon">
@@ -143,136 +145,23 @@
 
             <div class="row">
 
-                <button type="button" class="btn btn-default  pull-left  active"><i
+                <button type="button" class="btn btn-xs  pull-left  active"><i
                         class="fa fa-exclamation-triangle"></i> Report Abuse
                 </button>
 
-                <button type="button" name="submit" class="btn btn-default  pull-right  active"
-                        onclick="$('#ommentForm').toggle();"><i
+                <button type="button" name="submit" class="btn btn-xs  pull-right  active"
+                        ng-click="comment(item.id)"><i
                         class="fa fa-comment"></i> Comment on this Answer
                 </button>
                 <hr/>
-
-                <!--<form novalidate name="commentForm"-->
-                      <!--id="commentForm"-->
-                      <!--class="css-form"-->
-
-                      <!--ng-controller="CommentCtrl">-->
-                    <!--<div class="row">-->
-                        <!--<div class="col-sm-6 ">-->
-                            <!--<div class="inputContainer">-->
-                                <!--<label>Screen Name </label>-->
-                                <!--<input type="text"-->
-                                       <!--ng-model="comment.screenName" required="true"-->
-                                       <!--name="authorName"-->
-                                       <!--ng-minlength="3"-->
-                                       <!--ng-maxlength="15"-->
-                                       <!--id="authortName"-->
-                                       <!--value=""-->
-                                       <!--class="form-control"-->
-                                       <!--autocomplete="off"/>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="col-sm-6">-->
-                            <!--<div class="inputContainer">-->
-                                <!--<label class="screen-reader-text">Email</label>-->
-                                <!--<input type="email"-->
-                                       <!--ng-model="comment.email" required="true"-->
-                                       <!--name="email"-->
-                                       <!--id="email"-->
-                                       <!--value=""-->
-                                       <!--class="form-control"-->
-                                       <!--autocomplete="off"/>-->
-                            <!--</div>-->
-                        <!--</div>-->
-
-                        <!--<div class="col-sm-12">-->
-                            <!--<div class="inputContainer">-->
-                                <!--<label class="screen-reader-text">Comment</label>-->
-                                <!--<textarea name="answer"-->
-                                          <!--ng-model="comment.comment" required="true"-->
-                                          <!--id="commentsText"-->
-                                          <!--class="form-control"-->
-                                          <!--autocomplete="off"></textarea>-->
-                            <!--</div>-->
-                        <!--</div>-->
-
-                        <!--<div class="clearfix">-->
-                            <!--<hr/>-->
-                        <!--</div>-->
-                        <!--<div class="col-sm-12 ">-->
-                            <!--<div class="btn-toolbar">-->
-
-                                <!--<button name="submit"-->
-                                        <!--ng-click="createComment(comment, item.id)"-->
-                                        <!--ng-disabled="commentForm.$invalid || isUnchanged(comment)"-->
-                                        <!--type="button"-->
-                                        <!--class="btn btn-primary btn-md btn-lg pull-right">Submit Comment-->
-                                <!--</button>-->
-                                <!--<button name="submit"-->
-                                        <!--onclick="$('#commentForm').toggle();"-->
-                                        <!--type="button"-->
-                                        <!--class="btn btn-primary btn-md btn-lg pull-right">Cancel-->
-                                <!--</button>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</form>-->
-                <!--&lt;!&ndash;Comments Form &ndash;&gt;-->
-
-
             </div>
             <hr/>
 
+            <div class="row">
+                <div comment-list={{item.id}}></div>
 
-            <div class="row" ng-repeat="comm in item.comments | orderBy:'-date'"> <!--Comments-->
-
-                <div class="productFeatures clearfix">
-                    <div class="col-xs-2 icon">
-							<span class="fa-stack fa-lg">
-							<i class="fa fa-circle fa-stack-2x"></i>
-							<i class="fa fa-comments fa-stack-1x fa-inverse"></i>
-							</span>
-                    </div>
-                    <div class="col-xs-10">
-                        <div class="row">
-                            <div class="btn-toolbar">
-                                <button type="button" class="btn btn-default disabled"><i
-                                        class="fa fa-user"></i> {{comm.screenName}}
-                                </button>
-                                <button type="button" class="btn btn-default disabled"><i
-                                        class="fa fa-user"></i> Reputation: 75%
-                                </button>
-
-                                <button type="button"
-                                        class="btn btn-default  pull-right btn-success active"><i
-                                        class="fa fa-thumbs-up"></i> Vote: 200k
-                                </button>
-
-                                <button type="button" class="btn btn-default  pull-right btn-danger"><i
-                                        class="fa fa-thumbs-down"></i> Vote:400K
-                                </button>
-                            </div>
-                        </div>
-                        <br/>
-
-                        <div class="row">
-                            <i class="fa fa-calendar"></i> {{comm.date | date:'medium'}}<br/>
-                        </div>
-                        <br/>
-
-                        <p>{{comm.comment}}</p>
-
-                        <div class="row">
-
-                            <button type="button" class="btn btn-default  pull-left  active"><i
-                                    class="fa fa-exclamation-triangle"></i> Report Abuse
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
             </div>
+
         </div>
     </div>
 </div>

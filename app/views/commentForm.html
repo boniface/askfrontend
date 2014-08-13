@@ -1,0 +1,79 @@
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="col-xs-12">
+                    <h2 class="sectionTitle">Commenting</h2>
+                </div>
+                <form novalidate name="commentForm" class="css-form">
+                    <div class="row">
+                        <div class="col-sm-6 ">
+                            <div class="inputContainer">
+                                <label>Screen Name </label>
+                                <input type="text"
+                                       ng-model="cform.screenName" required="true"
+                                       name="authorName"
+                                       ng-minlength="3"
+                                       ng-maxlength="15"
+                                       id="authortName"
+                                       value=""
+                                       class="form-control"
+                                       autocomplete="off"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="inputContainer">
+                                <label class="screen-reader-text">Email</label>
+                                <input type="email"
+                                       ng-model="cform.email" required="true"
+                                       name="email"
+                                       id="email"
+                                       value=""
+                                       class="form-control"
+                                       autocomplete="off"/>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6" hidden="true">
+                            <div class="inputContainer">
+                                <label class="screen-reader-text">AnswerId</label>
+                                <input type="answerId"
+                                       ng-model="cform.answerId"
+                                       name="answerId"
+                                       id="answerId"
+                                       value=""
+                                       class="form-control"
+                                       autocomplete="off"/>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="inputContainer">
+                                <label class="screen-reader-text">Your Answer</label>
+                                <textarea name="comment"
+                                          ng-model="cform.comment" required="true"
+                                          id="commentsText"
+                                          rows="10"
+                                          class="form-control"
+                                          autocomplete="off"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="cancel()" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                <button name="submit"
+                        ng-click="submitcomment(cform)"
+                        ng-disabled="cform.$invalid || isUnchanged(cform)"
+                        type="button"
+                        class="btn btn-primary btn-md  pull-right">Submit Answer
+                </button>
+            </div>
+
+    </div>
+

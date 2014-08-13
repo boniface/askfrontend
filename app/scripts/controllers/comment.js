@@ -8,29 +8,24 @@
  * Controller of the askApp
  */
 angular.module('askApp')
-  .controller('CommentCtrl', function ($scope, $http, $resource, $location, baseUrl,$routeParams){
+  .controller('CommentCtrl', function ($scope){
 
 //      $scope.getCommentResource = $resource(baseUrl + 'comment/get/' + id + ':id', { id: '@id' });
-      $scope.postCommentResource = $resource(baseUrl + 'comment' + ':id', { id: '@id' });
+//      $scope.postCommentResource = $resource(baseUrl + 'comment' + ':id', { id: '@id' });
 
-        $scope.createComment = function(comment, answerId) {
+        $scope.createComment = function(cform) {
+            console.log('The Comments', cform);
 
-//            $scope.comment.answerId=id;
 
-            console.log('The Comments', answerId);
-            $scope.cform = {};
-            $scope.cform.screenName  =comment.screenName;
-            $scope.cform.email  = comment.email;
-            $scope.cform.comment  = comment.comment;
-            $scope.cform.answerId  = answerId;
-            $scope.cform.questionId=$routeParams.id;
 
-//            $scope.comments= $scope.getCommentResource
+
+
+            $scope.comments= $scope.getCommentResource;
 
             console.log('The Comments', $scope.cform);
 
-            new $scope.postCommentResource($scope.cform).$save();
-            $scope.comment ={};
+//            new $scope.postCommentResource($scope.cform).$save();
+//            $scope.comment ={};
 
             $scope.commentForm.$setPristine();
 

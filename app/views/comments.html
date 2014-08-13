@@ -1,0 +1,49 @@
+<div class="row" ng-repeat="comm in comments | orderBy:'-date'"> <!--Comments-->
+
+
+    <div class="productFeatures clearfix">
+        <div class="col-xs-2 icon">
+							<span class="fa-stack fa-lg">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-comment fa-stack-1x fa-inverse"></i>
+							</span>
+        </div>
+        <div class="col-xs-10">
+            <div class="row">
+                <div class="btn-toolbar">
+                    <button type="button" class="btn btn-default disabled"><i
+                            class="fa fa-user"></i> {{comm.screenName}}
+                    </button>
+                    <button type="button" class="btn btn-default disabled"><i
+                            class="fa fa-user"></i> Reputation: 75%
+                    </button>
+
+                    <button type="button"
+                            class="btn btn-default  pull-right btn-success active"><i
+                            class="fa fa-thumbs-up"></i> Vote: 200k
+                    </button>
+
+                    <button type="button" class="btn btn-default  pull-right btn-danger"><i
+                            class="fa fa-thumbs-down"></i> Vote:400K
+                    </button>
+                </div>
+            </div>
+            <br/>
+
+            <div class="row">
+                <i class="fa fa-calendar"></i> {{comm.date | date:'medium'}}<br/>
+            </div>
+            <br/>
+
+            <p>{{comm.comment}}</p>
+
+            <div class="row">
+
+                <button type="button" class="btn btn-xs pull-left  active"><i
+                        class="fa fa-exclamation-triangle"></i> Report Abuse
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div><!--The Comments Block-->
